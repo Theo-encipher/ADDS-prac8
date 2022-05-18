@@ -16,14 +16,14 @@ class Node {
 
 private:
     int data;
-    int * next; //pointer to next node
+    Node * next; //pointer to next node
 
 public:
     Node();
     int getData();
     void setData(int data);
-    int * getNext();
-    void setNext(int * next);
+    Node * getNext();
+    void setNext(Node * next);
     ~Node();
 
 };

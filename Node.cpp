@@ -21,12 +21,12 @@ void Node::setData(int data) {
 
 }
 
-int * Node::getNext() {
+Node * Node::getNext() {
     return next;
 
 }
 
-void Node::setNext(int * pointer) {
+void Node::setNext(Node * pointer) {
 
     next = pointer;
 
