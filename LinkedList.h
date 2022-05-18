@@ -15,6 +15,9 @@ class LinkedList {
 
 private:
     Node * head;
+    int * array;
+    int size;
+
 
 public:
     //Constructors
@@ -50,7 +53,6 @@ public:
 
     //destructor
     ~LinkedList(); //A destructor that manually deletes all the elements that are still in the list.
-
 
 };
 
