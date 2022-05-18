@@ -20,23 +20,28 @@ LinkedList::LinkedList(int * array, int size) {
         this->array[i] = array[i];
     }
 
-    //dynamically create an array that holds an array of pointers to Nodes
-    this->list = new Node[size];
-    //assign the head pointer to be the first node in the list
-    list[0] = *head;
+    //dyamically create a new node
+    Node * obj1 = new Node();
 
-    //set the data and pointer for each node in the correct order
-    for (int i = 0; i < size; i++) {
-        list[i].setData(array[i]);
-        if (i < (size -1)) {
-            //set the pointer to the next node until the final one
-            list[i].setNext(&list[i+1]);
-        }
-        else {
-            list[i].setNext(nullptr);
-        }
+    //make head point to the new Node
+    head->setNext(obj1);
 
+    int i = 0;
+
+    //set the data and pointer for each node in the correct order; excluding final pointer
+    while (i != (size-1)) {
+        obj1->setData(array[i]);
+        Node * obj2 = new Node();
+        obj1->setNext(obj2);
+        obj1 = obj2;
+        i++;
     }
+
+    //set the data in the final node
+    obj1->setData(array[i]);
+
+    //set the pointer in the final node to a null pointer
+    obj1->setNext(nullptr);
 }
 
 void LinkedList::addFront(int newItem) {
@@ -74,9 +79,6 @@ void LinkedList::printItems() {
 
 }
 
-
 LinkedList::~LinkedList() {
-    for (int i = 0; i < size; i++) {
-        delete &list[i];
-    }
+
 }
