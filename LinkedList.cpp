@@ -41,6 +41,8 @@ LinkedList::LinkedList(int * array, int size) {
 
 void LinkedList::addFront(int newItem) {
 
+
+
 }
 
 void LinkedList::addEnd(int newItem) {
