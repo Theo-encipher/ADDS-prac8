@@ -13,12 +13,8 @@ LinkedList::LinkedList() {
 }
 
 LinkedList::LinkedList(int * array, int size) {
-    this->size = size;
-
-    //store the array values in the variable in the object
-    for (int i = 0; i < size; i++) {
-        this->array[i] = array[i];
-    }
+    //make the head a node
+    head = new Node();
 
     //dyamically create a new node
     Node * obj1 = new Node();
