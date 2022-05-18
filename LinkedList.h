@@ -17,7 +17,7 @@ private:
     Node * head;
     int * array;
     int size;
-
+    Node * list;
 
 public:
     //Constructors
