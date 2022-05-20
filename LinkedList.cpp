@@ -73,7 +73,7 @@ void LinkedList::addEnd(int newItem) {
     }
 
     pointer = head->getNext();
-    int count2 = 1;
+    int count2 = 1 ;
 
     while (count2 != (count1-1)) {
         pointer = pointer->getNext();
@@ -213,42 +213,52 @@ void LinkedList::deleteEnd() {
 
 void LinkedList::deletePosition(int position) {
 
-    Node * iterator = head->getNext();
+    Node * pointer = head->getNext();
     Node * discard;
     Node * before;
-    int count = 1;
+    int count1 = 1;
 
+    //if the position is less than one return outside of range
     if ( position < 1) {
         std::cout << "outside range" << std::endl;
     }
-
     else {
-        for (iterator; iterator != nullptr; iterator = iterator->getNext()) {
-
-            if (count == (position-2)) {
-                before = iterator;
-                before->getData();
-            }
-            if (count == (position - 1)) {
-                discard = iterator;
-                discard->getData();
-                break;
-            }
-            count++;
-            iterator = iterator->getNext();
+        //find the length of the list
+        while (pointer != nullptr) {
+            pointer = pointer->getNext();
+            count1++;
         }
 
-       if (discard == nullptr) {
-           std::cout << "outside range" << std::endl;
-       }
-       else {
-           Node * temp = discard->getNext();
-           before->setNext(temp);
+        //if the position is greater than the size of the list
+        if (position > count1) {
+            std::cout << "outside range" << std::endl;
+        }
+        else {
+            pointer = head->getNext();
+            int count2 = 1 ;
 
-           delete discard;
-       }
+            while (count2 != (position -2)) {
+                count2++;
+                pointer = pointer->getNext();
+            }
+
+            before = pointer;
+            pointer = head->getNext();
+            count2 = 1 ;
+
+            while (count2 != (position -1)) {
+                count2++;
+                pointer = pointer->getNext();
+            }
+            discard = pointer;
+
+            Node * temp = discard;
+            before->setNext(temp);
+
+            delete discard;
+        }
+
     }
-
 
 }
 
