@@ -32,3 +32,6 @@ void Node::setNext(Node * pointer) {
     next = pointer;
 
 }
+Node::~Node() {
+
+}

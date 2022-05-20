@@ -68,7 +68,7 @@ void LinkedList::addEnd(int newItem) {
     while (pointer != nullptr) {
         pointer = pointer->getNext();
     }
-
+    Node * end = pointer;
 
     //create new node to add
     Node * obj = new Node();
@@ -77,7 +77,7 @@ void LinkedList::addEnd(int newItem) {
     obj->setNext(nullptr);
 
     //make old end node point to new end node
-    pointer->setNext(obj);
+    end->setNext(obj);
 }
 
 void LinkedList::addAtPosition(int position, int newItem) {
@@ -151,7 +151,7 @@ void LinkedList::deleteFront() {
     head->setNext(link);
 
     //delete discard
-     delete &discard;
+     delete discard;
 
 
 }
@@ -159,29 +159,73 @@ void LinkedList::deleteFront() {
 void LinkedList::deleteEnd() {
     //pointer to move through list
     Node * pointer = head->getNext();
-
+    Node * discard;
+    Node * before;
+    int count1 = 0;
+    int count2 = 0;
     //find the last node
     while (pointer != nullptr) {
         pointer = pointer->getNext();
+        count1++;
     }
-
-    //pointer to hold pointer to second to last node
-    Node * secondToLast = head->getNext();
+    pointer = head->getNext();
 
     //find second to last node
-    while (secondToLast != pointer) {
-        secondToLast = secondToLast->getNext();
+    while (count2 != (count1-1)) {
+       pointer = pointer->getNext();
+       count2++;
+    }
+    discard = pointer;
+
+    pointer = head->getNext();
+    count2 = 0;
+    while (count2 != (count1-2)) {
+        pointer = pointer->getNext();
+        count2++;
     }
 
-    //make second to Last point to null
-    secondToLast->setNext(nullptr);
+    before = pointer;
 
-    delete &pointer;
+    //make second to Last point to null
+    before->setNext(nullptr);
+
+    delete discard;
 }
 
 void LinkedList::deletePosition(int position) {
 
+    Node * iterator = head->getNext();
+    Node * discard;
+    Node * before;
+    int count = 1;
 
+    if ( position < 1) {
+        std::cout << "outside range" << std::endl;
+    }
+
+    else {
+        for (iterator; iterator != nullptr; iterator = iterator->getNext()) {
+            iterator = iterator->getNext();
+            count++;
+            if (count == (position-2)) {
+                before = iterator;
+            }
+            if (count == (position - 1)) {
+                discard = iterator;
+                break;
+            }
+        }
+
+       if (discard == nullptr) {
+           std::cout << "outside range" << std::endl;
+       }
+       else {
+           Node * temp = discard->getNext();
+           before->setNext(temp);
+
+           delete discard;
+       }
+    }
 
 
 }
@@ -203,9 +247,9 @@ void LinkedList::printItems() {
 
 LinkedList::~LinkedList() {
 
-    Node * iter;
-    for (iter->getNext(); iter != nullptr; iter = iter->getNext()) {
-    };
+//    Node * iter;
+//    for (iter->getNext(); iter != nullptr; iter = iter->getNext()) {
+//    };
 
 
 }
