@@ -4,6 +4,7 @@
 //file purpose
 
 //included libraries
+#include <iostream>
 
 //extern signatures
 #include "LinkedList.h"
@@ -41,8 +42,20 @@ LinkedList::LinkedList(int * array, int size) {
 }
 
 void LinkedList::addFront(int newItem) {
+    //created new node to add
+    Node * obj = new Node;
 
+    //assigned new node obj with the new data
+    obj->setData(newItem);
 
+    //pointer to current first Node
+    Node * temp = head->getNext();
+
+    //set head to point to new first Node //inserting new node
+    head->setNext(obj);
+
+    //set new first Node to point to old first Node
+    obj->setNext(temp);
 
 }
 
@@ -51,7 +64,7 @@ void LinkedList::addEnd(int newItem) {
 }
 
 void LinkedList::addAtPosition(int position, int newItem) {
-
+    addFront(newItem);
 }
 
 int LinkedList::search(int item) {
@@ -72,6 +85,16 @@ void LinkedList::deletePosition(int position) {
 
 
 void LinkedList::printItems() {
+
+    //pointer for moving though nodes
+    Node * iterator;
+
+    //for loop to iterator through using the pointer //Note can't start at head because that doesn't hold any values;
+    for (iterator = head->getNext(); iterator != nullptr; iterator = iterator->getNext() ) {
+        std::cout << iterator->getData() << " ";
+    }
+
+    std::cout << std::endl;
 
 }
 
