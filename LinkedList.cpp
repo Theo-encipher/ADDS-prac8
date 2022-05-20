@@ -5,6 +5,7 @@
 
 //included libraries
 #include <iostream>
+#include <limits>
 
 //extern signatures
 #include "LinkedList.h"
@@ -148,15 +149,31 @@ int LinkedList::search(int item) {
         count++;
         if (iter->getData() == item) {
             std::cout << count << " " << std::endl;
-            break;
+            return count;
         }
     }
 
-    return count;
 
 }
 
 int LinkedList::getItem(int position) {
+    //pointer to more through linked list
+    Node * iter;
+    int count = 0;
+    int data = 0;
+
+    for (iter = head->getNext(); iter != nullptr; iter = iter->getNext() ) {
+        count++;
+        if (count == position) {
+            data = iter->getData();
+            std::cout << data << " " << std::endl;
+            return data;
+        }
+    }
+
+    std::cout << std::numeric_limits < int >::max() << " " << std::endl;
+
+    return std::numeric_limits< int >::max();
 
 }
 
@@ -170,8 +187,6 @@ void LinkedList::deleteFront() {
 
     //delete discard
      delete discard;
-
-
 }
 
 void LinkedList::deleteEnd() {
