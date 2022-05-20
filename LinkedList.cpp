@@ -73,7 +73,7 @@ void LinkedList::addEnd(int newItem) {
     }
 
     pointer = head->getNext();
-    int count2 = 0;
+    int count2 = 1;
 
     while (count2 != (count1-1)) {
         pointer = pointer->getNext();
