@@ -147,6 +147,26 @@ void LinkedList::deleteEnd() {
 
 void LinkedList::deletePosition(int position) {
 
+    //pointer to move through list
+    Node * pointer = head->getNext();
+
+    //find the last node
+    while (pointer != nullptr) {
+        pointer = pointer->getNext();
+    }
+
+    //pointer to hold pointer to second to last node
+    Node * secondToLast = head->getNext();
+
+    //find second to last node
+    while (secondToLast != pointer) {
+        secondToLast = secondToLast->getNext();
+    }
+
+    //make second to Last point to null
+    secondToLast->setNext(nullptr);
+
+    delete pointer;
 }
 
 
