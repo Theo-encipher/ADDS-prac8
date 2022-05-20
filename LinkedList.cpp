@@ -128,6 +128,16 @@ int LinkedList::search(int item) {
 }
 
 void LinkedList::deleteFront() {
+    //get pointer to discard
+    Node * discard = head->getNext();
+    //get pointer to node that disccard is pointing to
+    Node * link = discard->getNext();
+    //make head pointer to link
+    head->setNext(link);
+
+    //delete discard
+    delete discard;
+
 
 }
 
