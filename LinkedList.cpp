@@ -65,19 +65,33 @@ void LinkedList::addEnd(int newItem) {
     Node * pointer = head->getNext();
 
     //move through until final node is reached
+    int count1 = 1;
+
     while (pointer != nullptr) {
         pointer = pointer->getNext();
+        count1++;
     }
-    Node * end = pointer;
+
+    pointer = head->getNext();
+    int count2 = 0;
+
+    while (count2 != (count1-1)) {
+        pointer = pointer->getNext();
+        count2++;
+    }
+
+    Node * pointertoEnd = pointer;
 
     //create new node to add
     Node * obj = new Node();
+
+    //make old end node point to new end node
+    pointertoEnd->setNext(obj);
+
     //set new data to new node
     obj->setData(newItem);
     obj->setNext(nullptr);
 
-    //make old end node point to new end node
-    end->setNext(obj);
 }
 
 void LinkedList::addAtPosition(int position, int newItem) {
@@ -142,6 +156,10 @@ int LinkedList::search(int item) {
 
 }
 
+int getItem(int position) {
+    
+}
+
 void LinkedList::deleteFront() {
     //get pointer to discard
     Node * discard = head->getNext();
@@ -163,6 +181,7 @@ void LinkedList::deleteEnd() {
     Node * before;
     int count1 = 0;
     int count2 = 0;
+
     //find the last node
     while (pointer != nullptr) {
         pointer = pointer->getNext();
@@ -205,15 +224,18 @@ void LinkedList::deletePosition(int position) {
 
     else {
         for (iterator; iterator != nullptr; iterator = iterator->getNext()) {
-            iterator = iterator->getNext();
-            count++;
+
             if (count == (position-2)) {
                 before = iterator;
+                before->getData();
             }
             if (count == (position - 1)) {
                 discard = iterator;
+                discard->getData();
                 break;
             }
+            count++;
+            iterator = iterator->getNext();
         }
 
        if (discard == nullptr) {
@@ -235,10 +257,11 @@ void LinkedList::printItems() {
 
     //pointer for moving though nodes
     Node * iterator;
-
+    int count  = 1;
     //for loop to iterator through using the pointer //Note can't start at head because that doesn't hold any values
     for (iterator = head->getNext(); iterator != nullptr; iterator = iterator->getNext() ) {
-        std::cout << iterator->getData() << " ";
+        std::cout << count << ": " << iterator->getData() << " ";
+        count++;
     }
 
     std::cout << std::endl;

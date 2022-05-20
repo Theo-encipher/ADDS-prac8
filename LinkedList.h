@@ -37,12 +37,15 @@ public:
     // (positions start from 1). If not found, both prints 0 (followed by a space) and returns 0. Note that the returning
     // type is different from what was explained in the search function in the lecture.
 
+    int getItem(int position);
+
     //delete functions should manually delete the one that is removed from the list.
 
     void deleteFront(); //The function deletes the first element of the list.
     void deleteEnd(); //The function deletes the last element of the list.
     void deletePosition(int position);  //The function deletes the element at the given position of the list.
     // If the position < 1 or it is larger than the size of the list, only print ”outside range”.
+
 
     void printItems(); //he function prints the value of the items of the list from head to tail. In case of an
     // empty list, it does not print anything
