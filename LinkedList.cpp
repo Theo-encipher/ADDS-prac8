@@ -156,8 +156,8 @@ int LinkedList::search(int item) {
 
 }
 
-int getItem(int position) {
-    
+int LinkedList::getItem(int position) {
+
 }
 
 void LinkedList::deleteFront() {
