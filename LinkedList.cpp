@@ -69,14 +69,15 @@ void LinkedList::addEnd(int newItem) {
         pointer = pointer->getNext();
     }
 
+
     //create new node to add
     Node * obj = new Node();
     //set new data to new node
     obj->setData(newItem);
+    obj->setNext(nullptr);
 
     //make old end node point to new end node
     pointer->setNext(obj);
-
 }
 
 void LinkedList::addAtPosition(int position, int newItem) {
@@ -125,6 +126,20 @@ void LinkedList::addAtPosition(int position, int newItem) {
 
 int LinkedList::search(int item) {
 
+    //pointer to more through linked list
+    Node * iter;
+    int count = 0;
+
+    for (iter = head->getNext(); iter != nullptr; iter = iter->getNext() ) {
+        count++;
+        if (iter->getData() == item) {
+            std::cout << count << " " << std::endl;
+            break;
+        }
+    }
+
+    return count;
+
 }
 
 void LinkedList::deleteFront() {
@@ -136,17 +151,12 @@ void LinkedList::deleteFront() {
     head->setNext(link);
 
     //delete discard
-    delete discard;
+     delete &discard;
 
 
 }
 
 void LinkedList::deleteEnd() {
-
-}
-
-void LinkedList::deletePosition(int position) {
-
     //pointer to move through list
     Node * pointer = head->getNext();
 
@@ -166,7 +176,14 @@ void LinkedList::deletePosition(int position) {
     //make second to Last point to null
     secondToLast->setNext(nullptr);
 
-    delete pointer;
+    delete &pointer;
+}
+
+void LinkedList::deletePosition(int position) {
+
+
+
+
 }
 
 
@@ -185,5 +202,10 @@ void LinkedList::printItems() {
 }
 
 LinkedList::~LinkedList() {
+
+    Node * iter;
+    for (iter->getNext(); iter != nullptr; iter = iter->getNext()) {
+    };
+
 
 }
