@@ -282,11 +282,11 @@ void LinkedList::printItems() {
 
     //pointer for moving though nodes
     Node * iterator;
-    int count  = 1;
+
     //for loop to iterator through using the pointer //Note can't start at head because that doesn't hold any values
     for (iterator = head->getNext(); iterator != nullptr; iterator = iterator->getNext() ) {
-        std::cout << count << ": " << iterator->getData() << " ";
-        count++;
+        std::cout << iterator->getData() << " ";
+
     }
 
     std::cout << std::endl;
