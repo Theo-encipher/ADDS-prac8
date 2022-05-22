@@ -253,7 +253,7 @@ void LinkedList::deletePosition(int position) {
             pointer = head->getNext();
             int count2 = 1 ;
 
-            while (count2 != (position -2)) {
+            while (count2 != (position -1)) {
                 count2++;
                 pointer = pointer->getNext();
             }
@@ -262,7 +262,7 @@ void LinkedList::deletePosition(int position) {
             pointer = head->getNext();
             count2 = 1 ;
 
-            while (count2 != (position -1)) {
+            while (count2 != (position)) {
                 count2++;
                 pointer = pointer->getNext();
             }
