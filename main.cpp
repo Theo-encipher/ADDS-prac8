@@ -17,12 +17,14 @@ int main() {
     int array[100];
     string function;
     int parameters[2];
+    int count = 0;
 
     for (int i = 0; i < 100; i++) {
         if (cin.fail()) {
             break;
         }
         cin >> array[i];
+        count++;
     }
 
     cin.clear();
@@ -33,11 +35,12 @@ int main() {
         }
 
         cin >> parameters[i];
+
     }
 
     cin.clear();
 
-    LinkedList * object = new LinkedList(array, 100);
+    LinkedList * object = new LinkedList(array, count);
 
     if (function == "AF") {
         //addFront

@@ -111,7 +111,7 @@ void LinkedList::addAtPosition(int position, int newItem) {
         //find the node before the position the new node is being added at or find position is bigger than size of array, hence add at end;
         for (pointer; pointer != nullptr; pointer = pointer->getNext()) {
             count++;
-            if (count == (position - 1)) {
+            if (count == (position)) {
                 break;
             }
         }
