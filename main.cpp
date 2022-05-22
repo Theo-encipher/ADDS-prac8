@@ -6,6 +6,7 @@
 //included libraries
 #include <iostream>
 using namespace std;
+#include <string>
 
 //extern signatures:
 #include "LinkedList.h"
@@ -26,6 +27,23 @@ int main() {
         array[count] = val;
 
     }
+
+    string info;
+    cin >> info;
+
+    if (info == "AF") {
+
+
+    }
+
+    int values[2];
+
+    for (int i = 0; i < 2; i++) {
+
+        cin >> values[i];
+    }
+
+
 
 
 
