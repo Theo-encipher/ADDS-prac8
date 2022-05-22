@@ -297,9 +297,12 @@ void LinkedList::printItems() {
 
 LinkedList::~LinkedList() {
 
-//    Node * iter;
-//    for (iter->getNext(); iter != nullptr; iter = iter->getNext()) {
-//    };
-
-
+    Node * temp = head->getNext();
+    while (temp != nullptr) {
+        Node * temp2 = temp->getNext();
+        delete temp;
+        temp = temp2;
+    }
+    delete temp;
+    delete head;
 }
