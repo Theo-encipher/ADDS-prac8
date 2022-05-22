@@ -153,7 +153,8 @@ int LinkedList::search(int item) {
         }
     }
 
-
+    std::cout << 0 << " " << std::endl;
+    return 0;
 }
 
 int LinkedList::getItem(int position) {
