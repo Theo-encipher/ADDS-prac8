@@ -15,83 +15,67 @@ using namespace std;
 int main() {
 
     int array[100];
-    int val;
-    int count = 0;
+    string function;
+    int parameters[2];
 
-    while (count != 100) {
-        cin >> val;
-        if (cin.eof()) {
+    for (int i = 0; i < 100; i++) {
+        if (cin.fail()) {
             break;
         }
-        array[count] = val;
-        count++;
-
-
+        cin >> array[i];
     }
 
-    string info;
-    cin >> info;
-
-    int values[2];
-    int data;
-    int counter = 0;
-
-    while (! cin.eof()) {
-        cin >> data;
-        if (cin.eof()) {
+    cin.clear();
+    cin >> function;
+    for (int i = 0; i < 2; i++) {
+        if (cin.fail()) {
             break;
         }
-        values[counter] = data;
-        counter++;
+
+        cin >> parameters[i];
     }
+
+    cin.clear();
 
     LinkedList * object = new LinkedList(array, 100);
 
-    if (info == "AF") {
+    if (function == "AF") {
         //addFront
-        object->addFront(values[0]);
+        object->addFront(parameters[0]);
         object->printItems();
     }
-    else if(info == "AE") {
+    else if(function == "AE") {
         //addEnd
-        object->addEnd(values[0]);
+        object->addEnd(parameters[0]);
         object->printItems();
-    } else if (info == "AP") {
+    } else if (function == "AP") {
         //addAtPosition
-        object->addAtPosition(values[0], values[1]);
+        object->addAtPosition(parameters[0], parameters[1]);
         object->printItems();
-    } else if (info == "S") {
+    } else if (function == "S") {
         //search
-        object->search(values[0]);
+        object->search(parameters[0]);
         object->printItems();
-    } else if (info == "DF") {
+    } else if (function == "DF") {
         //deleteFront
         object->deleteFront();
         object->printItems();
-    } else if (info == "DE") {
+    } else if (function == "DE") {
         // deleteEnd
         object->deleteEnd();
         object->printItems();
 
-    } else if (info == "DP") {
+    } else if (function == "DP") {
         //deletePosition
-        object->deletePosition(values[0]);
+        object->deletePosition(parameters[0]);
         object->printItems();
 
-    } else if (info == "GI") {
+    } else if (function == "GI") {
         //getItem
-        object->getItem(values[0]);
+        object->getItem(parameters[0]);
         object->printItems();
     }
 
-
-
-
-
-
-
-
-    LinkedList * obj1 = new LinkedList(array, count);
 
     return 0;
 }
