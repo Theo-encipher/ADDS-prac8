@@ -268,7 +268,8 @@ void LinkedList::deletePosition(int position) {
             }
             discard = pointer;
 
-            Node * temp = discard;
+
+            Node * temp = discard->getNext();
             before->setNext(temp);
 
             delete discard;
