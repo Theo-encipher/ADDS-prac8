@@ -11,7 +11,7 @@
 #include "LinkedList.h"
 
 LinkedList::LinkedList() {
-    head = nullptr;
+
 }
 
 LinkedList::LinkedList(int * array, int size) {
@@ -22,7 +22,7 @@ LinkedList::LinkedList(int * array, int size) {
     Node * obj1 = new Node();
 
     //make head point to the new Node
-    head->setNext(obj1);
+    head->setNext(obj1) ;
 
     int i = 0;
 
@@ -287,6 +287,10 @@ void LinkedList::printItems() {
 
     //for loop to iterator through using the pointer //Note can't start at head because that doesn't hold any values
     for (iterator = head->getNext(); iterator != nullptr; iterator = iterator->getNext() ) {
+
+        if (iterator->getNext() == nullptr) {
+            break;
+        }
         std::cout << iterator->getData() << " ";
 
     }
